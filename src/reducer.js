@@ -16,7 +16,7 @@ const initial = {
   timeout: null,
 };
 
-const SHOW_PROPS = ['origin', 'el', 'place', 'content'];
+const SHOW_PROPS = ['origin', 'el', 'place', 'content', 'baseStyles', 'contentStyles'];
 
 const handlers = {
   [SHOW]: function (state, action) {

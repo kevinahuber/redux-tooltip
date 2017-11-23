@@ -36,6 +36,8 @@ class Tooltip extends Component {
       className: PropTypes.string,
       onHover: PropTypes.func,
       onLeave: PropTypes.func,
+      baseStyles: PropTypes.object,
+      contentStyles: PropTypes.object
     };
   }
 
@@ -79,7 +81,7 @@ class Tooltip extends Component {
   }
 
   render () {
-    const { id, className, show, onHover, onLeave } = this.props;
+    const { id, className, show, onHover, onLeave, baseStyles, contentStyles} = this.props;
     const origin = originOrEl(this.props);
     const { place, offset } = this.state;
     const content = this.children();
@@ -96,7 +98,7 @@ class Tooltip extends Component {
       <div>
         <div
           ref="tooltip"
-          style={style.base}
+          style={{...style.base, ...baseStyles}}
           id={id}
           className={className}
           onMouseEnter={onHover}
@@ -104,7 +106,7 @@ class Tooltip extends Component {
         >
           <div
             ref="content"
-            style={style.content}
+            style={{...style.content, ...contentStyles}}
             id={`${id}-content`}
             className={`${className}-content`}
           >
